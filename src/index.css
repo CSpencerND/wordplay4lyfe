@@ -8,6 +8,12 @@
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 /** Font Sizes */
 h2,
 .card-title {
@@ -21,13 +27,13 @@ p {
 /** Background Colors */
 html,
 body {
-    @apply bg-base-200;
+    @apply bg-base-300;
 }
 
 header,
 ul,
 .card {
-    @apply bg-base-100;
+    @apply bg-base-200;
 }
 
 /** Opacity */
@@ -66,4 +72,9 @@ ul,
 
 img {
     @apply rounded-xl;
+}
+
+/** Spacing */
+.card-body {
+    @apply space-y-3;
 }
