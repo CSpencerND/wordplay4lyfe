@@ -3,12 +3,12 @@ import { Link } from "@shopify/hydrogen"
 
 export const SideBar: FC = () => {
     return (
-        <div className="drawer-side shadow-md shadow-black/50 mt-20">
+        <div className="drawer-side mt-20">
             <label
                 htmlFor="sidebar"
-                className="drawer-overlay !bg-black/25 backdrop-blur-sm"
+                className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-64 md:w-80 bg-base-100">
+            <ul className="menu p-4 w-64 md:w-80">
                 <li>
                     <Link to="/">Home</Link>
                 </li>

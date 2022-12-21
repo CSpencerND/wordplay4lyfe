@@ -4,7 +4,7 @@ type Props = { children: ReactNode }
 
 export const DrawerWrapper: FC<Props> = ({ children }) => {
     return (
-        <div className="drawer drawer-mobile">
+        <div className="drawer">
             <input id="sidebar" className="drawer-toggle" type="checkbox" />
             {children}
         </div>
