@@ -1,7 +1,6 @@
-import { FC } from "react"
 import { Link } from "@shopify/hydrogen"
 
-export const SideBar: FC = () => {
+export const SideBar= () => {
     return (
         <div className="drawer-side mt-20">
             <label

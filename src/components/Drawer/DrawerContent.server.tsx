@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react"
+import { ReactNode } from "react"
 
 type Props = { children: ReactNode }
 
-export const DrawerContent: FC<Props> = ({ children }) => {
+export const DrawerContent  = ({ children }: Props) => {
     return (
         <div className="drawer-content flex flex-col">
             {children}

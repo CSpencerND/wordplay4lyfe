@@ -1,12 +1,12 @@
 import { ShoppingCart, User } from "react-feather"
 import { Twirl as Hamburger } from "hamburger-react"
-import { FC, ReactNode } from "react"
+import { ReactNode } from "react"
 
 type Props = {
     children: ReactNode
 }
 
-const Navbar: FC<Props> = ({ children }) => {
+const Navbar = ({ children }: Props) => {
     return (
         <header className="sticky top-0 z-50">
             <nav className="navbar lg:container lg:mx-auto p-3">
