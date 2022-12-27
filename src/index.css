@@ -4,6 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .wrapper {
+        @apply container mx-auto;
+    }
+    .dark-to-light {
+        @apply bg-gradient-to-b from-base-300 via-base-100 bg-base-content;
+    }
+    .light-to-dark {
+        @apply bg-gradient-to-b from-base-content via-base-100 bg-base-300;
+    }
+}
+
 * {
     font-family: Poppins, Arial, Helvetica, sans-serif;
 }
@@ -12,6 +24,10 @@ html,
 body {
     max-width: 100vw;
     overflow-x: hidden;
+}
+
+section {
+    @apply px-6;
 }
 
 /** Font Sizes */
@@ -27,21 +43,20 @@ p {
 /** Background Colors */
 html,
 body {
-    @apply bg-base-300;
+    @apply bg-neutral;
 }
 
 header,
 ul,
 .card {
-    @apply bg-base-200;
+    @apply bg-base-300;
 }
 
 /** Opacity */
 header,
-ul,
 .menu,
 .dropdown-content {
-    @apply bg-opacity-90;
+    @apply bg-opacity-90 backdrop-blur;
 }
 
 /* header, */
@@ -49,13 +64,8 @@ ul,
 /*     @apply backdrop-blur; */
 /* } */
 
-.bg-opacity-90 {
-    @apply backdrop-blur;
-}
-
 /** Shadows */
 header,
-ul,
 .hero,
 .card,
 .menu,
@@ -75,6 +85,19 @@ img {
 }
 
 /** Spacing */
+main {
+    @apply space-y-6;
+}
+
 .card-body {
     @apply space-y-3;
 }
+
+
+/** Miscellaneous */
+.carousel-item > img {
+    @apply bg-base-content shadow-md shadow-black/25;
+}
+/* .carousel-item > img { */
+/*     @apply bg-base-100 shadow-md shadow-black/25; */
+/* } */

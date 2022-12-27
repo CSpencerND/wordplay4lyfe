@@ -14,7 +14,7 @@ const App = () => {
                     <DrawerWrapper>
                         <DrawerContent>
                             <MainHeader />
-                            <main className="container mx-auto p-6 space-y-6">
+                            <main>
                                 <FileRoutes />
                             </main>
                         </DrawerContent>
