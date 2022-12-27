@@ -12,6 +12,7 @@ export const Showcase = () => {
     const sliderRef = useRef<HTMLUListElement | null>(null)
     const [sliderPosition, setSliderPosition] = useState(0)
     const slideWidth: number = 216
+    const slides: number = 5
 
     const currentSlide = useMemo(() => {
         return Math.floor(sliderPosition / slideWidth)
@@ -100,20 +101,22 @@ export const Showcase = () => {
                     </li>
                 </ul>
                 <div className="flex flex-row justify-center gap-6 pb-6">
-                    <label
+                    <button
                         className="btn btn-outline btn-circle btn-sm btn-secondary"
                         onClick={scrollLeft}
+                        disabled={currentSlide === 0}
                     >
                         <ChevronLeft size={16} />
                         <span className="sr-only">Scroll Left</span>
-                    </label>
-                    <label
+                    </button>
+                    <button
                         className="btn btn-outline btn-circle btn-sm btn-secondary"
                         onClick={scrollRight}
+                        disabled={currentSlide === slides}
                     >
                         <ChevronRight size={16} />
                         <span className="sr-only">Scroll Right</span>
-                    </label>
+                    </button>
                 </div>
             </div>
         </>
