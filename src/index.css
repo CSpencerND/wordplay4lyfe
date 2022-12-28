@@ -31,6 +31,9 @@ section {
 }
 
 /** Font Sizes */
+h1 {
+    @apply text-2xl;
+}
 h2,
 .card-title {
     @apply text-lg;
@@ -93,11 +96,36 @@ main {
     @apply space-y-3;
 }
 
-
 /** Miscellaneous */
-.carousel-item > img {
+img:not(#logo) {
     @apply bg-base-content shadow-md shadow-black/25;
 }
-/* .carousel-item > img { */
-/*     @apply bg-base-100 shadow-md shadow-black/25; */
-/* } */
+
+/** Carousel */
+.alice-carousel__stage-item {
+    @apply !px-2;
+}
+
+.carousel-image {
+    @apply w-full;
+}
+
+.alice-carousel__dots {
+    @apply !pb-6 max-md:!hidden;
+}
+
+.alice-carousel__dots-item {
+    @apply !bg-base-content p-1.5 transition-all;
+}
+
+.alice-carousel__dots-item:hover {
+    @apply opacity-50 scale-125;
+}
+
+.alice-carousel__dots-item.__active {
+    @apply !bg-secondary;
+}
+
+.alice-carousel__prev-btn, .alice-carousel__next-btn {
+    @apply md:!hidden;
+}

@@ -21,7 +21,7 @@ const Hero = () => {
                     <div className={`hero-overlay bg-opacity-40`}></div>
                     <div className="hero-content text-center text-zinc-100">
                         <div>
-                            <h1 className="mb-5 text-3xl lg:text-4xl font-medium uppercase drop-shadow-[-1px_2px_4px_rgb(0,0,0)]">
+                            <h1 className="mb-5 lg:text-4xl font-medium uppercase drop-shadow-[-1px_2px_4px_rgb(0,0,0)]">
                                 We play with words
                             </h1>
                         </div>

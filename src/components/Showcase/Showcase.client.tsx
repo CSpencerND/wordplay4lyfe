@@ -6,118 +6,115 @@ import cake from "./assets/strawberry-cake.webp"
 import taste from "./assets/taste-the-rainbow.webp"
 import { Image } from "@shopify/hydrogen"
 import { ChevronRight, ChevronLeft } from "react-feather"
-import { useMemo, useCallback, useState, useRef } from "react"
+
+import AliceCarousel from "react-alice-carousel"
+import "react-alice-carousel/lib/alice-carousel.css"
+
+const handleDragStart = (e: React.DragEvent<HTMLImageElement>) =>
+    e.preventDefault()
+
+const images = [
+    <Image
+        src={yum}
+        alt="yum yum"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+    <Image
+        src={ice}
+        alt="ice cream"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+    <Image
+        src={milk}
+        alt="milkshake"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+    <Image
+        src={cotton}
+        alt="cotton candy"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+    <Image
+        src={taste}
+        alt="tase the rainbow"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+    <Image
+        src={cake}
+        alt="strawberry cake"
+        width={200}
+        height={200}
+        onDragStart={handleDragStart}
+        role="presentation"
+        className="carousel-image"
+    />,
+]
 
 export const Showcase = () => {
-    const sliderRef = useRef<HTMLUListElement | null>(null)
-    const [sliderPosition, setSliderPosition] = useState(0)
-    const slideWidth: number = 216
-    const slides: number = 5
-
-    const currentSlide = useMemo(() => {
-        return Math.floor(sliderPosition / slideWidth)
-    }, [sliderPosition])
-
-    const scrollToSlide = (
-        slider: HTMLUListElement | null,
-        slideIndex: number
-    ) => {
-        if (!slider) return
-        slider.scrollTo({
-            left: slideIndex * slideWidth,
-            behavior: "smooth",
-        })
-    }
-
-    const scrollLeft = useCallback(() => {
-        scrollToSlide(sliderRef.current, currentSlide - 1)
-    }, [currentSlide])
-
-    const scrollRight = useCallback(() => {
-        scrollToSlide(sliderRef.current, currentSlide + 1)
-    }, [currentSlide])
-
     return (
         <>
             <div className="card">
-                {/* <div className="card" style={{ boxShadow: "0 0 24px 4px" }}> */}
-                <h2 className="text-center font-semibold pt-6 pb-2">
+                <h2 className="text-center text-accent font-semibold py-6">
                     Fresh Summer Drip
                 </h2>
-                <ul
-                    className="carousel carousel-center py-6 px-32 space-x-4 rounded-box h-64"
-                    ref={sliderRef}
-                    onScroll={(e) => {
-                        setSliderPosition(e.currentTarget.scrollLeft)
+                <AliceCarousel
+                    items={images}
+                    infinite
+                    keyboardNavigation
+                    mouseTracking
+                    paddingLeft={64}
+                    paddingRight={64}
+                    responsive={{
+                        0: {
+                            items: 1,
+                        },
+                        640: {
+                            items: 2,
+                        },
+                        1024: {
+                            items: 3,
+                        },
+                        1280: {
+                            items: 4,
+                        },
                     }}
-                >
-                    <li className="carousel-item">
-                        <Image
-                            src={yum}
-                            alt="yum yum"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                    <li className="carousel-item">
-                        <Image
-                            src={ice}
-                            alt="ice cream"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                    <li className="carousel-item">
-                        <Image
-                            src={milk}
-                            alt="milkshake"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                    <li className="carousel-item">
-                        <Image
-                            src={cotton}
-                            alt="cotton candy"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                    <li className="carousel-item">
-                        <Image
-                            src={taste}
-                            alt="tase the rainbow"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                    <li className="carousel-item">
-                        <Image
-                            src={cake}
-                            alt="strawberry cake"
-                            width={200}
-                            height={200}
-                        />
-                    </li>
-                </ul>
-                <div className="flex flex-row justify-center gap-6 pb-6">
-                    <button
-                        className="btn btn-outline btn-circle btn-sm btn-secondary"
-                        onClick={scrollLeft}
-                        disabled={currentSlide === 0}
-                    >
-                        <ChevronLeft size={16} />
-                        <span className="sr-only">Scroll Left</span>
-                    </button>
-                    <button
-                        className="btn btn-outline btn-circle btn-sm btn-secondary"
-                        onClick={scrollRight}
-                        disabled={currentSlide === slides}
-                    >
-                        <ChevronRight size={16} />
-                        <span className="sr-only">Scroll Right</span>
-                    </button>
-                </div>
+                    renderPrevButton={() => {
+                        return (
+                            <ChevronLeft
+                                className="btn btn-outline btn-circle btn-sm btn-secondary p-1.5 my-3.5 mr-1"
+                                aria-controls="alice-carousel"
+                            />
+                        )
+                    }}
+                    renderNextButton={() => {
+                        return (
+                            <ChevronRight
+                                className="btn btn-outline btn-circle btn-sm btn-secondary p-1.5 my-3.5 ml-1"
+                                aria-controls="alice-carousel"
+                            />
+                        )
+                    }}
+                />
             </div>
         </>
     )
