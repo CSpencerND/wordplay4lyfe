@@ -13,62 +13,24 @@ import "react-alice-carousel/lib/alice-carousel.css"
 const handleDragStart = (e: React.DragEvent<HTMLImageElement>) =>
     e.preventDefault()
 
-const images = [
-    <Image
-        src={yum}
-        alt="yum yum"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-    <Image
-        src={ice}
-        alt="ice cream"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-    <Image
-        src={milk}
-        alt="milkshake"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-    <Image
-        src={cotton}
-        alt="cotton candy"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-    <Image
-        src={taste}
-        alt="tase the rainbow"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-    <Image
-        src={cake}
-        alt="strawberry cake"
-        width={200}
-        height={200}
-        onDragStart={handleDragStart}
-        role="presentation"
-        className="carousel-image"
-    />,
-]
+const altFromSrc = (src: string): string => {
+    return src.split("/").pop()!.split(".").shift()!.replace(/-/g, " ")
+}
+
+const imageImports = [yum, ice, milk, cotton, cake, taste]
+const images = imageImports.map((src) => {
+    return (
+        <Image
+            src={src}
+            alt={altFromSrc(src)}
+            width={200}
+            height={200}
+            onDragStart={handleDragStart}
+            role="presentation"
+            className="carousel-image"
+        />
+    )
+})
 
 export const Showcase = () => {
     return (
@@ -82,11 +44,11 @@ export const Showcase = () => {
                     infinite
                     keyboardNavigation
                     mouseTracking
-                    paddingLeft={64}
-                    paddingRight={64}
+                    paddingLeft={70}
+                    paddingRight={70}
                     autoPlay
                     autoPlayStrategy="all"
-                    autoPlayInterval={650}
+                    autoPlayInterval={675}
                     responsive={{
                         0: {
                             items: 1,
