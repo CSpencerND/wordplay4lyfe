@@ -6,15 +6,18 @@ import cake from "./assets/strawberry-cake.webp"
 import taste from "./assets/taste-the-rainbow.webp"
 import { Image } from "@shopify/hydrogen"
 import { ChevronRight, ChevronLeft } from "react-feather"
-
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
+import "./Showcase.css"
 
 const handleDragStart = (e: React.DragEvent<HTMLImageElement>) =>
     e.preventDefault()
 
 const altFromSrc = (src: string): string => {
-    return src.split("/").pop()!.split(".").shift()!.replace(/-/g, " ")
+    const alt: string = "t-shirt"
+    const fileName = src.split("/").pop()
+    const fileNameParts = fileName ? fileName.split(".").shift() : alt
+    return fileNameParts ? fileNameParts.replace(/-/g, " ") : alt
 }
 
 const imageImports = [yum, ice, milk, cotton, cake, taste]
