@@ -84,6 +84,9 @@ export const Showcase = () => {
                     mouseTracking
                     paddingLeft={64}
                     paddingRight={64}
+                    autoPlay
+                    autoPlayStrategy="all"
+                    autoPlayInterval={650}
                     responsive={{
                         0: {
                             items: 1,
