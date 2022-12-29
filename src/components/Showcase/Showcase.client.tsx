@@ -4,7 +4,7 @@ import milk from "./assets/milkshake.webp"
 import cotton from "./assets/cotton-candy.webp"
 import cake from "./assets/strawberry-cake.webp"
 import taste from "./assets/taste-the-rainbow.webp"
-import { Image } from "@shopify/hydrogen"
+import { Image, Link } from "@shopify/hydrogen"
 import { ChevronRight, ChevronLeft } from "react-feather"
 import AliceCarousel from "react-alice-carousel"
 import "react-alice-carousel/lib/alice-carousel.css"
@@ -83,6 +83,11 @@ export const Showcase = () => {
                         )
                     }}
                 />
+                <div className="mx-auto pb-6">
+                    <Link to="/" className="btn btn-info btn-outline">
+                        See More
+                    </Link>
+                </div>
             </div>
         </>
     )

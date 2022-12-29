@@ -4,15 +4,15 @@
 }
 
 .alice-carousel__stage-item {
-    @apply !px-2;
+    @apply px-2;
 }
 
 .alice-carousel__dots {
-    @apply !pb-6 max-md:!hidden;
+    @apply pb-6 max-md:hidden;
 }
 
 .alice-carousel__dots-item {
-    @apply !bg-base-content p-1.5 transition-all;
+    @apply bg-base-content p-1.5 transition-all;
 }
 
 .alice-carousel__dots-item:hover {
@@ -24,5 +24,5 @@
 }
 
 .alice-carousel__prev-btn, .alice-carousel__next-btn {
-    @apply md:!hidden;
+    @apply md:hidden;
 }
