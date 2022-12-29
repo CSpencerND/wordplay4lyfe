@@ -1,6 +1,10 @@
 /** Carousel */
 .carousel-image {
-    @apply w-full;
+    @apply w-full cursor-grab;
+}
+
+.carousel-image:active {
+    @apply cursor-grabbing;
 }
 
 .alice-carousel__stage-item {
